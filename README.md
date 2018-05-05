@@ -1,6 +1,6 @@
 # overflow
 
-TODO: Write a description here
+**[WIP]** Shard that makes crystal raise on integer overflow. Heavily inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785) and stdlib code.
 
 ## Installation
 
@@ -14,11 +14,7 @@ dependencies:
 
 ## Usage
 
-```crystal
-require "overflow"
-```
-
-TODO: Write usage instructions here
+You just have to `require "overflow"`. That's it.
 
 ## Development
 
