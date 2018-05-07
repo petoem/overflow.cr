@@ -8,7 +8,7 @@
           def {{sign.id}}(other : {{int_type}}) : {{type}}
             result, overflow = Intrinsics.s{{oper.id}}_{{name}}_with_overflow(self, other{{ints[type].id if int_type != type}})
             return result unless overflow
-            raise IntegerOverflow.new
+            raise IntegerOverflow.new "{{type}} s{{oper.id}} #{self}, #{other}"
           end
         {% end %}
       {% end %}
@@ -23,7 +23,7 @@
           def {{sign.id}}(other : {{int_type}}) : {{type}}
             result, overflow = Intrinsics.u{{oper.id}}_{{name}}_with_overflow(self, other{{ints[type].id if int_type != type}})
             return result unless overflow
-            raise IntegerOverflow.new
+            raise IntegerOverflow.new "{{type}} u{{oper.id}} #{self}, #{other}"
           end
         {% end %}
       {% end %}
