@@ -2,6 +2,7 @@ require "./overflow/version"
 require "./overflow/intrinsics"
 require "./overflow/exception"
 require "./overflow/safebox"
+require "./overflow/int"
 require "./overflow/operator"
 require "./overflow/conversion"
 
@@ -20,4 +21,8 @@ pp c
 
 f = SafeBox.new 300_u32
 pp f
-pp f.to_i8
+# pp f.to_i8
+
+pp (1_u64 + s)
+
+pp (f + 2)
