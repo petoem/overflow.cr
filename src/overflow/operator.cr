@@ -1,6 +1,7 @@
 {% begin %}
   struct SafeBox(T)
     # All operators for other : Int16, ...
+    # TODO: Forward to method below ?
     {% for type in [Int8, Int16, Int32, Int64, Int128, UInt8, UInt16, UInt32, UInt64, UInt128] %}
       {% for operation, sign in {add: "+", sub: "-", mul: "*"} %}
         def {{sign.id}}(other : {{type}}) : SafeBox(T)
