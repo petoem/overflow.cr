@@ -1,6 +1,6 @@
 # overflow
 
-**[WIP]** Shard that makes crystal raise on integer overflow. Heavily inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785) and stdlib code.
+**[WIP]** Wrap integer into `SafeBox(T)` to prevent/raise on overflow. Inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785).
 
 ## Installation
 
