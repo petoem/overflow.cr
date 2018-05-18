@@ -4,6 +4,9 @@ version: 0.1.0
 authors:
   - Michael Petö <michael@petoe.me>
 
+description: |
+  Wrapper for integer to prevent overflow.
+
 crystal: 0.24.2
 
 license: MIT
