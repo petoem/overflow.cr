@@ -1,5 +1,4 @@
 # TODO: Int / SafeBox
-# Int comparison ?
 struct Int
   include Comparable(SafeBox)
 
@@ -8,13 +7,12 @@ struct Int
   end
 
   {% for operator in ["+", "-", "*"] %}
-    def {{operator.id}}(other : SafeBox(T)) : SafeBox(self) forall T
+    def {{operator.id}}(other : SafeBox) : SafeBox(self)
       SafeBox.new(self) {{operator.id}} other
     end
   {% end %}
 end
 
-# TODO: Float comparison ?
 struct Float
   include Comparable(SafeBox)
 
@@ -23,7 +21,7 @@ struct Float
   end
   
   {% for operator in ["+", "-", "*", "/"] %}
-    def {{operator.id}}(other : SafeBox(T)) : self forall T
+    def {{operator.id}}(other : SafeBox) : self
       self {{operator.id}} other.to_f64
     end
   {% end %}
