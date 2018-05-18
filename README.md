@@ -14,7 +14,37 @@ dependencies:
 
 ## Usage
 
-You just have to `require "overflow"`. That's it.
+`overflow` shard provides `SafeBox(T)`, which helps you prevent integer overflow.  
+Operations like `+, -, *` on an integer stored inside `SafeBox(T)` are done using [LLVM Intrinsics](https://llvm.org/docs/LangRef.html#arithmetic-with-overflow-intrinsics) and `SafeBox(T)#to_*` methods are checked for overflow too.  
+All other method calls are forwarded to the integer `value` stored inside using `forward_missing_to` macro.
+```crystal
+require "overflow"
+
+# Short example
+struct Color
+  getter r : SafeBox(UInt8)
+  getter g : SafeBox(UInt8)
+  getter b : SafeBox(UInt8)
+
+  def initialize(@r, @g ,@b); end
+end
+
+# Create cyan color
+cyan = Color.new 0_u8.to_sb, 255_u8.to_sb, 255_u8.to_sb
+
+# Lets look what it stores ...
+pp cyan # => Color(
+        #     @b=SafeBox(UInt8)(@type=UInt8, @value=255_u8),
+        #     @g=SafeBox(UInt8)(@type=UInt8, @value=255_u8),
+        #     @r=SafeBox(UInt8)(@type=UInt8, @value=0_u8))
+
+# and now make it a bit more blue.
+blue = cyan.b + 20 # SafeBox(UInt8) uadd Int32 (IntegerOverflow)
+
+# Oops ... to much blue.
+```
+
+That's it for now.
 
 ## Development
 
