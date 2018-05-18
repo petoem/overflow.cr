@@ -6,6 +6,10 @@ struct Int
     self <=> other.value
   end
 
+  def to_sb : SafeBox(self)
+    SafeBox.new self
+  end
+
   {% for operator in ["+", "-", "*"] %}
     def {{operator.id}}(other : SafeBox) : SafeBox(self)
       SafeBox.new(self) {{operator.id}} other
