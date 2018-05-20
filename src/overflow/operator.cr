@@ -4,6 +4,7 @@
     # TODO: Forward to method below ?
     {% for type in [Int8, Int16, Int32, Int64, Int128, UInt8, UInt16, UInt32, UInt64, UInt128] %}
       {% for operation, sign in {add: "+", sub: "-", mul: "*"} %}
+        @[AlwaysInline]
         def {{sign.id}}(other : {{type}}) : SafeBox(T)
           \{% begin %}
             \{% to_int = {Int8 => ".to_i8", Int16 => ".to_i16", Int32 => ".to_i32", Int64 => ".to_i64", Int128 => ".to_i128", UInt8 => ".to_u8", UInt16 => ".to_u16", UInt32 => ".to_u32", UInt64 => ".to_u64", UInt128 => ".to_u128" }%}
@@ -19,6 +20,7 @@
     # All operators for other : SafeBox(Int16), ...
     {% for type in [Int8, Int16, Int32, Int64, Int128, UInt8, UInt16, UInt32, UInt64, UInt128] %}
       {% for operation, sign in {add: "+", sub: "-", mul: "*"} %}
+        @[AlwaysInline]
         def {{sign.id}}(other : SafeBox({{type}})) : SafeBox(T)
           \{% begin %}
             \{% to_int = {Int8 => ".to_i8", Int16 => ".to_i16", Int32 => ".to_i32", Int64 => ".to_i64", Int128 => ".to_i128", UInt8 => ".to_u8", UInt16 => ".to_u16", UInt32 => ".to_u32", UInt64 => ".to_u64", UInt128 => ".to_u128" }%}
