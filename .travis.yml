@@ -7,4 +7,4 @@ notifications:
     on_failure: never
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y lvm-toolchain-3.9
+  - sudo apt-get install -y llvm-toolchain-3.9
