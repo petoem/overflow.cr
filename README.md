@@ -1,5 +1,7 @@
 # overflow
 
+[![Build Status](https://travis-ci.org/petoem/overflow.svg?branch=master)](https://travis-ci.org/petoem/overflow)
+
 **[WIP]** Wrap integer into `SafeBox(T)` to prevent/raise on overflow. Inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785).
 
 ## Installation
@@ -12,10 +14,9 @@ dependencies:
     github: petoem/overflow
 ```
 
-For now this shard tries link against `libclang_rt.builtins-x86_64.a` which is part of [`compiler-rt`](https://github.com/llvm-mirror/compiler-rt). It is needed to fix this [error](https://travis-ci.org/petoem/overflow/builds/382581073#L553) related to `Int128` multiplication.
+This shard links against `libclang_rt.builtins-*.a` which is part of [`compiler-rt`](https://compiler-rt.llvm.org/). It is needed to fix this [error](https://travis-ci.org/petoem/overflow/builds/382581073#L553) related to `Int128` multiplication.
 
-You will have to install [clang](https://www.archlinux.org/packages/extra/x86_64/clang/).
-The above file is provided by package [compiler-rt](https://www.archlinux.org/packages/extra/x86_64/compiler-rt/) on ArchLinux and [libclang-common](https://packages.debian.org/stretch/libclang-common-3.9-dev) on Debian.
+You will have to install `clang` because it is used to discover the location of the compiler runtime library. Above file is provided by package [compiler-rt](https://www.archlinux.org/packages/extra/x86_64/compiler-rt/) on ArchLinux and [libclang-common](https://packages.debian.org/stretch/libclang-common-3.9-dev) on Debian (both dependencies of `clang` package). Hence, installing `clang` should be enough.
 
 ## Usage
 
