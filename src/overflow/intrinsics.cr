@@ -1,3 +1,6 @@
+{% if flag?(:x86_64) %}
+  @[Link(ldflags: "`clang -print-file-name=libclang_rt.builtins-x86_64.a`")]
+{% end %}
 lib Intrinsics
   {% for oper in %i(sadd ssub smul) %}
     {% for name, type in {i8: Int8, i16: Int16, i32: Int32, i64: Int64, i128: Int128} %}
