@@ -12,6 +12,11 @@ dependencies:
     github: petoem/overflow
 ```
 
+For now this shard tries link against `libclang_rt.builtins-x86_64.a` which is part of [`compiler-rt`](https://github.com/llvm-mirror/compiler-rt). It is needed to fix this [error](https://travis-ci.org/petoem/overflow/builds/382581073#L553) related to `Int128` multiplication.
+
+You will have to install [clang](https://www.archlinux.org/packages/extra/x86_64/clang/).
+The above file is provided by package [compiler-rt](https://www.archlinux.org/packages/extra/x86_64/compiler-rt/) on ArchLinux and [libclang-common](https://packages.debian.org/stretch/libclang-common-3.9-dev) on Debian.
+
 ## Usage
 
 `overflow` shard provides `SafeBox(T)`, which helps you prevent integer overflow.  
