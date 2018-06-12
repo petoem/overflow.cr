@@ -54,9 +54,9 @@ blue = cyan.b + 20 # SafeBox(UInt8) uadd Int32 (IntegerOverflow)
 
 That's it for now.
 
-## Development
+## Known Issues
 
-TODO: Write development instructions here
+- In a computation e.g. `a + b`, the right operand type is always extended or trimmed to the left operand type.
 
 ## Contributing
 
