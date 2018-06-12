@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/petoem/overflow.svg?branch=master)](https://travis-ci.org/petoem/overflow)
 
-**[WIP]** Wrap integer into `SafeBox(T)` to prevent/raise on overflow. Inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785).
+**[Experiment]** Wrap integer into `SafeBox(T)` to prevent/raise on overflow. Inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785).
+
+> *Note: Do not use in production! You have been warned.*
 
 ## Installation
 
