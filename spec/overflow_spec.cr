@@ -41,10 +41,7 @@ describe SafeBox do
         end
       {% end %}
     end
-
-    # FIXME: undefined reference to `__muloti4'
-    # Needed for Int128 multiplication
-    # fix maybe with compiler-rt ?
+    
     describe "SafeBox({{type_left}})#*" do
       {% for type_right in Int::Primitive.union_types %}
         it "returns expected result for SafeBox({{type_right}})" do
