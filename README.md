@@ -1,4 +1,4 @@
-# overflow.cr
+# [archived] overflow.cr
 
 [![Build Status](https://travis-ci.org/petoem/overflow.cr.svg?branch=master)](https://travis-ci.org/petoem/overflow.cr)
 
