@@ -1,6 +1,6 @@
-# overflow
+# overflow.cr
 
-[![Build Status](https://travis-ci.org/petoem/overflow.svg?branch=master)](https://travis-ci.org/petoem/overflow)
+[![Build Status](https://travis-ci.org/petoem/overflow.cr.svg?branch=master)](https://travis-ci.org/petoem/overflow.cr)
 
 **[Experiment]** Wrap integer into `SafeBox(T)` to prevent/raise on overflow. Inspired by this [gist](https://gist.github.com/endSly/3226a22f91689e7eae338fd647d6c785).
 
@@ -13,7 +13,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   overflow:
-    github: petoem/overflow
+    github: petoem/overflow.cr
 ```
 
 This shard links against `libclang_rt.builtins-*.a` which is part of [`compiler-rt`](https://compiler-rt.llvm.org/). It is needed to fix this [error](https://travis-ci.org/petoem/overflow/builds/382581073#L553) related to `Int128` multiplication.
@@ -22,7 +22,7 @@ You will have to install `clang` because it is used to discover the location of 
 
 ## Usage
 
-`overflow` shard provides `SafeBox(T)`, which helps you prevent integer overflow.  
+`overflow.cr` shard provides `SafeBox(T)`, which helps you prevent integer overflow.  
 Operations like `+, -, *` on an integer stored inside `SafeBox(T)` are done using [LLVM Intrinsics](https://llvm.org/docs/LangRef.html#arithmetic-with-overflow-intrinsics) and `SafeBox(T)#to_*` methods are checked for overflow too.  
 All other method calls are forwarded to the integer `value` stored inside using `forward_missing_to` macro.
 ```crystal
@@ -60,7 +60,7 @@ That's it for now.
 
 ## Contributing
 
-1. [Fork it](https://github.com/petoem/overflow/fork)
+1. [Fork it](https://github.com/petoem/overflow.cr/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
